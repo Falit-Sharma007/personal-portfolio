@@ -6,7 +6,7 @@ export interface ProjectScreenshot {
 export interface Project {
     title: string;
 
-    type: "Personal Product" | "Professional Project";
+    type: "Personal Project" | "Professional Project";
 
     featured: boolean;
 
@@ -33,12 +33,12 @@ export const projects: Project[] = [
     {
         title: "Restaurant Food SaaS",
 
-        type: "Personal Product",
+        type: "Personal Project",
 
         featured: true,
 
         description:
-            "A multi-tenant restaurant management platform built to help restaurants manage their menus, branding, orders, payments, and customer experiences through a modern dashboard and customer applications.",
+            "A multi-tenant restaurant management platform featuring restaurant dashboards, customer-facing applications, menu management, real-time order tracking, payments, branding, and responsive interfaces.",
 
         features: [
             "Restaurant Dashboard",
