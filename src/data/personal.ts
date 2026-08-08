@@ -16,5 +16,5 @@ export const personalInfo = {
 
   linkedin: "http://linkedin.com/in/falit-sharmab35105215",
 
-  resume: "",
+  resume: "/resume/Falit-Sharma-Frontend-Resume.pdf",
 };

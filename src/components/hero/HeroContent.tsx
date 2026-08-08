@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, Eye } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/personal";
@@ -57,13 +57,25 @@ export default function HeroContent() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="mt-10 flex flex-col gap-4 sm:flex-row">
+                className="mt-10 flex flex-col gap-4 sm:flex-row"
+            >
                 <Link href="#projects">
                     <Button>
                         View Projects
                         <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                 </Link>
+
+                <a
+                    href={personalInfo.resume}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Button variant="outline">
+                        View Resume
+                        <Eye className="ml-2 h-4 w-4" />
+                    </Button>
+                </a>
 
                 <a
                     href={personalInfo.resume}
