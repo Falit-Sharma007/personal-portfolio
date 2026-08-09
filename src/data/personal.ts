@@ -12,7 +12,7 @@ export const personalInfo = {
 
   email: "sharma.falit19@gmail.com",
 
-  github: "",
+  github: "https://github.com/Falit-Sharma007",
 
   linkedin: "http://linkedin.com/in/falit-sharmab35105215",
 
