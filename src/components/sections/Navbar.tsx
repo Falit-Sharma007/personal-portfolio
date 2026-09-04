@@ -55,14 +55,14 @@ export default function Navbar() {
 
                     {/* Resume Button */}
 
-                    <div className="hidden md:block">
+                    {/* <div className="hidden md:block">
                         <button
                             className="rounded-xl border border-[var(--primary)] px-5 py-2 text-sm font-medium text-[var(--primary)] transition-all duration-300 hover:bg-[var(--primary)] hover:text-white hover:shadow-[0_0_25px_rgba(143,143,212,0.4)]
                             "
                         >
                             Resume
                         </button>
-                    </div>
+                    </div> */}
 
                     {/* Mobile Button */}
 

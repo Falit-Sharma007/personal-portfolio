@@ -177,7 +177,7 @@ export default function MobileMenu({
 
             {/* Bottom */}
 
-            <motion.div
+            {/* <motion.div
               variants={navItemVariants}
               className="mt-auto"
             >
@@ -203,7 +203,7 @@ export default function MobileMenu({
               >
                 Download Resume
               </a>
-            </motion.div>
+            </motion.div> */}
           </motion.aside>
         </motion.div>
       )}
