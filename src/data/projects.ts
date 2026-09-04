@@ -31,7 +31,7 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        title: "Restaurant Food SaaS",
+        title: "Multi-Tenant Restaurant Management Platform",
 
         type: "Personal Project",
 
