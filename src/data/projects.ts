@@ -18,7 +18,7 @@ export interface Project {
 
     technologies: string[];
 
-    status: string;
+    status?: string;
 
     github?: string;
 
@@ -26,16 +26,57 @@ export interface Project {
 
     image?: string;
 
+    video?: string;
+
     screenshots?: ProjectScreenshot[];
 }
 
 export const projects: Project[] = [
     {
-        title: "Multi-Tenant Restaurant Management Platform",
+        title: "StrivaUI — AI UI Generator",
 
         type: "Personal Project",
 
         featured: true,
+
+        description:
+            "A browser-based component workshop that generates React and Tailwind CSS interfaces from text prompts, with live previews and streamed code generation.",
+
+        features: [
+            "AI-Powered UI Generation",
+            "React & Tailwind CSS Code Generation",
+            "Live Component Preview",
+            "Streaming Code Output",
+            "Version History",
+            "Responsive Component Design",
+            "User Authentication",
+            "Generation Limits",
+        ],
+
+        technologies: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "Supabase",
+            "PostgreSQL",
+            "Prisma",
+            "OpenAI",
+        ],
+
+        github: "",
+
+        live: "https://striva-ui-ai.vercel.app",
+
+        video: "/projects/strivaui/strivaui-demo.mp4",
+    },
+
+    {
+        title: "Multi-Tenant Restaurant Management Platform",
+
+        type: "Personal Project",
+
+        featured: false,
 
         description:
             "A multi-tenant restaurant management platform featuring restaurant dashboards, customer-facing applications, menu management, real-time order tracking, payments, branding, and responsive interfaces.",

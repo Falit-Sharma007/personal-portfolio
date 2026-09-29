@@ -27,41 +27,64 @@ const fadeUpVariants: Variants = {
 };
 
 export default function Projects() {
-  const featuredProject = projects.find(
-    (project) => project.featured
-  );
+    const featuredProject = projects.find(
+        (project) => project.featured
+    );
 
-  return (
-    <Section id="projects">
-      <Container>
-        {/* Heading */}
+    const otherProjects = projects.filter(
+        (project) => !project.featured && project.type === "Personal Project"
+    );
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUpVariants}
-        >
-          <Heading
-            title="Featured Project"
-            subtitle="A personal product showcasing my frontend and full-stack development experience."
-          />
-        </motion.div>
+    return (
+        <Section id="projects">
+            <Container>
+                {/* Heading */}
 
-        {/* Personal Project */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={fadeUpVariants}
+                >
+                    <Heading
+                        title="Personal Projects"
+                        subtitle="A selection of products and applications I've built to explore ideas, solve practical problems, and strengthen my development skills."
+                    />
+                </motion.div>
 
-        {featuredProject && (
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={fadeUpVariants}
-            className="mt-12"
-          >
-            <FeaturedProject project={featuredProject} />
-          </motion.div>
-        )}
-      </Container>
-    </Section>
-  );
+                {/* Featured Project */}
+
+                {featuredProject && (
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.15 }}
+                        variants={fadeUpVariants}
+                        className="mt-12"
+                    >
+                        <FeaturedProject project={featuredProject} />
+                    </motion.div>
+                )}
+
+                {/* Other Personal Projects */}
+
+                {otherProjects.length > 0 && (
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.15 }}
+                        variants={fadeUpVariants}
+                        className="mt-12"
+                    >
+                        {otherProjects.map((project) => (
+                            <FeaturedProject
+                                key={project.title}
+                                project={project}
+                            />
+                        ))}
+                    </motion.div>
+                )}
+            </Container>
+        </Section>
+    );
 }

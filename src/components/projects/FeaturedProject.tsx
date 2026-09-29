@@ -54,20 +54,46 @@ export default function FeaturedProject({
     >
       {/* Main Project Preview */}
 
-      {project.screenshots?.[0] && (
+      {project.video ? (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="
-            relative
-            aspect-video
-            overflow-hidden
-            border-b
-            border-white/10
-            bg-[#050816]
-          "
+      relative
+      aspect-video
+      overflow-hidden
+      border-b
+      border-white/10
+      bg-[#050816]
+    "
+        >
+          <video
+            className="h-full w-full object-cover"
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <source src={project.video} type="video/mp4" />
+
+            Your browser does not support the video tag.
+          </video>
+        </motion.div>
+      ) : project.screenshots?.[0] ? (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="
+      relative
+      aspect-video
+      overflow-hidden
+      border-b
+      border-white/10
+      bg-[#050816]
+    "
         >
           <Image
             src={project.screenshots[0].src}
@@ -76,15 +102,15 @@ export default function FeaturedProject({
             priority
             sizes="(max-width: 768px) 100vw, 1200px"
             className="
-              object-cover
-              object-top
-              transition-transform
-              duration-700
-              hover:scale-[1.02]
-            "
+        object-cover
+        object-top
+        transition-transform
+        duration-700
+        hover:scale-[1.02]
+      "
           />
         </motion.div>
-      )}
+      ) : null}
 
       {/* Content */}
 
@@ -102,7 +128,9 @@ export default function FeaturedProject({
             </h3>
           </div>
 
-          <StatusBadge status={project.status} />
+          {project.status && (
+            <StatusBadge status={project.status} />
+          )}
         </div>
 
         {/* Description */}
