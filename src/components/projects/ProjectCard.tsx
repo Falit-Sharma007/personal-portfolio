@@ -37,7 +37,9 @@ export default function ProjectCard({
           </h3>
         </div>
 
-        <StatusBadge status={project.status} />
+        {project.status && (
+          <StatusBadge status={project.status} />
+        )}
       </div>
 
       <p className="mt-6 leading-7 text-[var(--secondary-text)]">

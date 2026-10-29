@@ -3,6 +3,11 @@ export interface ProjectScreenshot {
     alt: string;
 }
 
+export interface ProjectVideo {
+    title: string;
+    src: string;
+}
+
 export interface Project {
     title: string;
 
@@ -27,6 +32,8 @@ export interface Project {
     image?: string;
 
     video?: string;
+
+    videos?: ProjectVideo[];
 
     screenshots?: ProjectScreenshot[];
 }
@@ -68,7 +75,16 @@ export const projects: Project[] = [
 
         live: "https://striva-ui-ai.vercel.app",
 
-        video: "/projects/strivaui/strivaui-demo.mp4",
+        videos: [
+            {
+                title: "AI UI Generation",
+                src: "/projects/strivaui/strivaui-demo.mp4",
+            },
+            {
+                title: "Design System Integration",
+                src: "/projects/strivaui/design-system.mp4",
+            },
+        ],
     },
 
     {

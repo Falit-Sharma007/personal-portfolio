@@ -54,21 +54,38 @@ export default function FeaturedProject({
     >
       {/* Main Project Preview */}
 
-      {project.video ? (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="
-      relative
-      aspect-video
-      overflow-hidden
-      border-b
-      border-white/10
-      bg-[#050816]
-    "
-        >
+      {/* Main Project Preview */}
+
+      {project.videos?.length ? (
+        <div className="border-b border-white/10 p-6 sm:p-8">
+          <h4 className="mb-6 text-lg font-semibold text-white">
+            Product Demo
+          </h4>
+
+          <div className="grid gap-8">
+            {project.videos.map((video) => (
+              <div key={video.src}>
+                <h5 className="mb-3 font-medium text-white">
+                  {video.title}
+                </h5>
+
+                <div className="aspect-video overflow-hidden rounded-2xl border border-white/10 bg-[#050816]">
+                  <video
+                    className="h-full w-full"
+                    controls
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src={video.src} type="video/mp4" />
+                    Your browser does not support this video.
+                  </video>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : project.video ? (
+        <div className="relative aspect-video overflow-hidden border-b border-white/10 bg-[#050816]">
           <video
             className="h-full w-full object-cover"
             controls
@@ -76,24 +93,16 @@ export default function FeaturedProject({
             preload="metadata"
           >
             <source src={project.video} type="video/mp4" />
-
-            Your browser does not support the video tag.
+            Your browser does not support this video.
           </video>
-        </motion.div>
+        </div>
       ) : project.screenshots?.[0] ? (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="
-      relative
-      aspect-video
-      overflow-hidden
-      border-b
-      border-white/10
-      bg-[#050816]
-    "
+          className="relative aspect-video overflow-hidden border-b border-white/10 bg-[#050816]"
         >
           <Image
             src={project.screenshots[0].src}
@@ -101,13 +110,7 @@ export default function FeaturedProject({
             fill
             priority
             sizes="(max-width: 768px) 100vw, 1200px"
-            className="
-        object-cover
-        object-top
-        transition-transform
-        duration-700
-        hover:scale-[1.02]
-      "
+            className="object-cover object-top transition-transform duration-700 hover:scale-[1.02]"
           />
         </motion.div>
       ) : null}
